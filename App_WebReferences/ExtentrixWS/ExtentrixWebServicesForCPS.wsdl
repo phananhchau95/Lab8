@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://Extentrix.CitrixPSWS1.0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Extentrix.CitrixPSWS1.5/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://Extentrix.CitrixPSWS1.5/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Extentrix Web Services for Citrix Presentation Server</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Extentrix.CitrixPSWS1.0/">
+      <s:element name="LaunchApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Credentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domain" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DomainType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PasswordEncryptionMethod" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LaunchApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LaunchApplicationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationsByCredentials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desiredDetails" type="s0:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="s0:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetApplicationsByCredentialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationsByCredentialsResult" type="s0:ArrayOfApplicationItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfApplicationItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ApplicationItem" nillable="true" type="s0:ApplicationItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApplicationItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InternalName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreindlyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FolderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChangeCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServerType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WinWidth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WinHeight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WinColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WinType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WinScale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoundTypeMinimum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoundType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoTypeMinimum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EncryptionMinimum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Encryption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppOnDesktop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppInStartmenu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartmenuFolder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartMenuRoot" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublisherName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSLEnabled" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RemoteAccessEnabled" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fileTypes" type="s0:ArrayOfFileType" />
+          <s:element minOccurs="0" maxOccurs="1" name="users" type="s0:ArrayOfUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFileType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FileType" nillable="true" type="s0:FileType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FileType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FileTypeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDefault" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Overwrite" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileExtension" type="s0:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="MimeType" type="s0:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parameters" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="s0:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LaunchApplicationWithParameter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LaunchApplicationWithParameterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LaunchApplicationWithParameterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCodebaseURL">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCodebaseURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCodebaseURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desiredDetails" type="s0:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="s0:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="s0:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationInfoResult" type="s0:ApplicationItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCredentials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCredentialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateCredentialsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Extentrix.CitrixPSWS1.5/">
+      <s:import namespace="http://Extentrix.CitrixPSWS1.0/" />
+      <s:element name="IsApplicationPublished">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsApplicationPublishedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsApplicationPublishedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiscSessions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMethod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDiscSessionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDiscSessionsResult" type="tns:ArrayOfICASession" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfICASession">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ICASession" nillable="true" type="tns:ICASession" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ICASession">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InternalName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServerType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DisconnectSessions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMethod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DisconnectSessionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DisconnectSessionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoffSessions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMethod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoffSessionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogoffSessionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServersResult" type="tns:ArrayOfPresentationServer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPresentationServer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PresentationServer" nillable="true" type="tns:PresentationServer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PresentationServer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServerType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAltServerAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serverName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAltServerAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAltServerAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationsByCredentialsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desiredDetails" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationsByCredentialsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationsByCredentialsExResult" type="tns:ArrayOfApplicationItemEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfApplicationItemEx">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ApplicationItemEx" nillable="true" type="tns:ApplicationItemEx" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApplicationItemEx">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:ApplicationItem">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="groups" type="tns:ArrayOfGroups" />
+              <s:element minOccurs="0" maxOccurs="1" name="availableIcons" type="tns:ArrayOfIconInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfGroups">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Groups" nillable="true" type="tns:Groups" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Groups">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GroupNames" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomainType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIconInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IconInfo" type="tns:IconInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IconInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="size" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="depth" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="format" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetApplicationInfoEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desiredDetails" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="serverTypes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientTypes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationInfoExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationInfoExResult" type="tns:ApplicationItemEx" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationIcon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="size" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="colorDepth" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="format" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s0:Credentials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationIconResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationIconResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LaunchApplicationSoapIn">
+    <wsdl:part name="parameters" element="s0:LaunchApplication" />
+  </wsdl:message>
+  <wsdl:message name="LaunchApplicationSoapOut">
+    <wsdl:part name="parameters" element="s0:LaunchApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationsByCredentialsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetApplicationsByCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationsByCredentialsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetApplicationsByCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LaunchApplicationWithParameterSoapIn">
+    <wsdl:part name="parameters" element="s0:LaunchApplicationWithParameter" />
+  </wsdl:message>
+  <wsdl:message name="LaunchApplicationWithParameterSoapOut">
+    <wsdl:part name="parameters" element="s0:LaunchApplicationWithParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCodebaseURLSoapIn">
+    <wsdl:part name="parameters" element="s0:GetCodebaseURL" />
+  </wsdl:message>
+  <wsdl:message name="GetCodebaseURLSoapOut">
+    <wsdl:part name="parameters" element="s0:GetCodebaseURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationInfoSoapIn">
+    <wsdl:part name="parameters" element="s0:GetApplicationInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationInfoSoapOut">
+    <wsdl:part name="parameters" element="s0:GetApplicationInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCredentialsSoapIn">
+    <wsdl:part name="parameters" element="s0:ValidateCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCredentialsSoapOut">
+    <wsdl:part name="parameters" element="s0:ValidateCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsApplicationPublishedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsApplicationPublished" />
+  </wsdl:message>
+  <wsdl:message name="IsApplicationPublishedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsApplicationPublishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDiscSessionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDiscSessions" />
+  </wsdl:message>
+  <wsdl:message name="GetDiscSessionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDiscSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisconnectSessionsSoapIn">
+    <wsdl:part name="parameters" element="tns:DisconnectSessions" />
+  </wsdl:message>
+  <wsdl:message name="DisconnectSessionsSoapOut">
+    <wsdl:part name="parameters" element="tns:DisconnectSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoffSessionsSoapIn">
+    <wsdl:part name="parameters" element="tns:LogoffSessions" />
+  </wsdl:message>
+  <wsdl:message name="LogoffSessionsSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoffSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServers" />
+  </wsdl:message>
+  <wsdl:message name="GetServersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAltServerAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAltServerAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetAltServerAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAltServerAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationsByCredentialsExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApplicationsByCredentialsEx" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationsByCredentialsExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApplicationsByCredentialsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationInfoExSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApplicationInfoEx" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationInfoExSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApplicationInfoExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationIconSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApplicationIcon" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationIconSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApplicationIconResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExtentrixWebServicesForCPSSoap">
+    <wsdl:operation name="LaunchApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the ICA file description to be used to launch an application.</wsdl:documentation>
+      <wsdl:input message="tns:LaunchApplicationSoapIn" />
+      <wsdl:output message="tns:LaunchApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsByCredentials">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all published applications for a specific client with the specified details, server types, and client types.</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationsByCredentialsSoapIn" />
+      <wsdl:output message="tns:GetApplicationsByCredentialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LaunchApplicationWithParameter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the ICA file description to be used to launch an application with a given parameter.</wsdl:documentation>
+      <wsdl:input message="tns:LaunchApplicationWithParameterSoapIn" />
+      <wsdl:output message="tns:LaunchApplicationWithParameterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodebaseURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the URL codebase of the PNAgent server that specifies the location where the java classes used to launch the application via java client reside.</wsdl:documentation>
+      <wsdl:input message="tns:GetCodebaseURLSoapIn" />
+      <wsdl:output message="tns:GetCodebaseURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get information about a published application for a specific client with the specified details, server types, and client types.</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationInfoSoapIn" />
+      <wsdl:output message="tns:GetApplicationInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCredentials">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks the user's credentials and returns true if they are valid and returns false if they are not.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateCredentialsSoapIn" />
+      <wsdl:output message="tns:ValidateCredentialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationPublished">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns true if the user is allowed to launch the application. Otherwise, it will return false.</wsdl:documentation>
+      <wsdl:input message="tns:IsApplicationPublishedSoapIn" />
+      <wsdl:output message="tns:IsApplicationPublishedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscSessions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all disconnected sessions for the given client.</wsdl:documentation>
+      <wsdl:input message="tns:GetDiscSessionsSoapIn" />
+      <wsdl:output message="tns:GetDiscSessionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectSessions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Disconnects the active sessions created by the requesting client.</wsdl:documentation>
+      <wsdl:input message="tns:DisconnectSessionsSoapIn" />
+      <wsdl:output message="tns:DisconnectSessionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoffSessions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Logs off the active sessions created by the requesting client.</wsdl:documentation>
+      <wsdl:input message="tns:LogoffSessionsSoapIn" />
+      <wsdl:output message="tns:LogoffSessionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of all servers in the farm which supports the given server and client types.</wsdl:documentation>
+      <wsdl:input message="tns:GetServersSoapIn" />
+      <wsdl:output message="tns:GetServersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAltServerAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets an alternative address for a given server address.</wsdl:documentation>
+      <wsdl:input message="tns:GetAltServerAddressSoapIn" />
+      <wsdl:output message="tns:GetAltServerAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsByCredentialsEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all published applications with full details for a specific client with the specified details, server types, and client types.</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationsByCredentialsExSoapIn" />
+      <wsdl:output message="tns:GetApplicationsByCredentialsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationInfoEx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get fully detailed information about a published application for a specific client with the specified details, server types, and client types.</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationInfoExSoapIn" />
+      <wsdl:output message="tns:GetApplicationInfoExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationIcon">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get icon data for a specific published application.</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationIconSoapIn" />
+      <wsdl:output message="tns:GetApplicationIconSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExtentrixWebServicesForCPSSoap" type="tns:ExtentrixWebServicesForCPSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LaunchApplication">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.0/LaunchApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsByCredentials">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.0/GetApplicationsByCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LaunchApplicationWithParameter">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.0/LaunchApplicationWithParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodebaseURL">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.0/GetCodebaseURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationInfo">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.0/GetApplicationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCredentials">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.0/ValidateCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationPublished">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/IsApplicationPublished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscSessions">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetDiscSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectSessions">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/DisconncetSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffSessions">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/LogoffSessions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServers">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetServers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAltServerAddress">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetAltServerAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsByCredentialsEx">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetApplicationsByCredentialsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationInfoEx">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetApplicationInfoEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationIcon">
+      <soap:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetAppIcon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExtentrixWebServicesForCPSSoap12" type="tns:ExtentrixWebServicesForCPSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LaunchApplication">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.0/LaunchApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsByCredentials">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.0/GetApplicationsByCredentials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LaunchApplicationWithParameter">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.0/LaunchApplicationWithParameter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodebaseURL">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.0/GetCodebaseURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationInfo">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.0/GetApplicationInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCredentials">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.0/ValidateCredentials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationPublished">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/IsApplicationPublished" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscSessions">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetDiscSessions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectSessions">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/DisconncetSessions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoffSessions">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/LogoffSessions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServers">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetServers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAltServerAddress">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetAltServerAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsByCredentialsEx">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetApplicationsByCredentialsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationInfoEx">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetApplicationInfoEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationIcon">
+      <soap12:operation soapAction="http://Extentrix.CitrixPSWS1.5/GetAppIcon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExtentrixWebServicesForCPS">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Extentrix Web Services for Citrix Presentation Server</wsdl:documentation>
+    <wsdl:port name="ExtentrixWebServicesForCPSSoap" binding="tns:ExtentrixWebServicesForCPSSoap">
+      <soap:address location="http://www.extentrix.com/webservices/2.0.0/ExtentrixWebServicesForCPS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExtentrixWebServicesForCPSSoap12" binding="tns:ExtentrixWebServicesForCPSSoap12">
+      <soap12:address location="http://www.extentrix.com/webservices/2.0.0/ExtentrixWebServicesForCPS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
